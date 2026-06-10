@@ -6,6 +6,9 @@
 
 > 适配 Cocos Creator 2.4.x(在 2.4.15 上开发/验证)。
 
+> **配套工具**:[ps-cocos-psd-namer](https://github.com/shiliyu1991-lang/ps-cocos-psd-namer)
+> —— Photoshop 面板,选中图层一键加本规范的前缀(`btn_` / `!` 等),让美术按命名规范标注图层。
+
 ## 特性
 
 - **一键转换**:PSD 图层树 → 预制体节点树,像素级对齐(锚点 0.5/0.5,按真实包围盒定位)。
@@ -21,7 +24,7 @@
 ## 安装(放进工程)
 
 ```bash
-git clone https://github.com/<your-name>/cocos-psd-prefab-2x.git
+git clone https://github.com/shiliyu1991-lang/cocos-psd-prefab-2x.git
 cd cocos-psd-prefab-2x
 npm install        # 安装依赖 ag-psd / pngjs / pinyin-pro
 ```
