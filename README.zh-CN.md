@@ -25,23 +25,56 @@
 
 ## 安装(放进工程)
 
+先 clone 并安装依赖(Windows / macOS / Linux 通用):
+
 ```bash
 git clone https://github.com/shiliyu1991-lang/cocos-psd-prefab-2x.git
 cd cocos-psd-prefab-2x
 npm install        # 安装依赖 ag-psd / pngjs / pinyin-pro
 ```
 
-把整个 `cocos-psd-prefab-2x` 文件夹放到目标工程的 `packages/` 目录下,例如:
+> 前置:需先装好 [Node.js](https://nodejs.org/)(>=14)。macOS 推荐 `brew install node`,
+> 或从官网下载安装包;装完在终端执行 `node -v` 确认可用。
 
+Cocos Creator 2.4.x 的扩展包有两种安装位置:**项目级**(只对当前工程生效)和
+**全局**(所有工程共用)。把整个 `cocos-psd-prefab-2x` 文件夹放进去即可。
+
+| 位置 | Windows | macOS |
+| --- | --- | --- |
+| 项目级 | `<你的工程>\packages\` | `<你的工程>/packages/` |
+| 全局 | `%USERPROFILE%\.CocosCreator\packages\` | `~/.CocosCreator/packages/` |
+
+### Windows
+
+把整个文件夹放到上表对应目录,例如 `<你的工程>\packages\cocos-psd-prefab-2x\`。
+
+### macOS
+
+全局目录 `~/.CocosCreator`(即 `$HOME/.CocosCreator`)是**隐藏文件夹**,
+在 Finder 里默认看不到,用下面任一方式打开:
+
+```bash
+# 方式 A:终端一条命令直接拷过去(没有该目录会自动创建)
+mkdir -p ~/.CocosCreator/packages
+cp -R /path/to/cocos-psd-prefab-2x ~/.CocosCreator/packages/
+
+# 方式 B:在 Finder 里打开隐藏目录后手动拖进去
+open ~/.CocosCreator/packages
 ```
-<你的工程>/packages/cocos-psd-prefab-2x/
-```
+
+> Finder 小技巧:在 Finder 中按 `Cmd + Shift + G`,输入 `~/.CocosCreator/packages`
+> 回车即可进入;或在任意 Finder 窗口按 `Cmd + Shift + .` 切换显示隐藏文件。
+
+只想对单个工程生效时,把文件夹放到 `<你的工程>/packages/cocos-psd-prefab-2x/` 即可。
+
+### 加载
 
 重启 / 刷新 Cocos Creator 后,菜单出现 **`PSD 工具 / PSD 转预制体`**。
-(也可放到全局 `~/.CocosCreator/packages/` 让所有工程共用。)
 
 > 提示:`node_modules/` 未提交到仓库。clone 后跑一次 `npm install` 即可;也可在
 > Release 里放一个含依赖的整包 zip,下载解压即用、无需 install。
+> macOS 下若从 zip 解压,首次可能被 Gatekeeper 拦截,可执行
+> `xattr -dr com.apple.quarantine /path/to/cocos-psd-prefab-2x` 解除隔离属性。
 
 ## 用法（编辑器面板）
 

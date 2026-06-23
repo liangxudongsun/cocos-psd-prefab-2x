@@ -21,22 +21,63 @@ A standalone **Cocos Creator 2.4.x** editor extension that converts a Photoshop 
 
 ## Installation (drop into a project)
 
+First clone and install dependencies (works on Windows / macOS / Linux):
+
 ```bash
 git clone https://github.com/shiliyu1991-lang/cocos-psd-prefab-2x.git
 cd cocos-psd-prefab-2x
 npm install        # install deps ag-psd / pngjs / pinyin-pro
 ```
 
-Place the entire `cocos-psd-prefab-2x` folder into the target project's `packages/` directory, for example:
+> Prerequisite: install [Node.js](https://nodejs.org/) (>=14) first. On macOS,
+> `brew install node` is recommended, or download the installer from the official
+> site; afterwards run `node -v` in a terminal to confirm it works.
 
+A Cocos Creator 2.4.x extension can be installed in two places: **project-level**
+(applies only to the current project) and **global** (shared across all projects).
+Just drop the entire `cocos-psd-prefab-2x` folder in.
+
+| Scope | Windows | macOS |
+| --- | --- | --- |
+| Project-level | `<your-project>\packages\` | `<your-project>/packages/` |
+| Global | `%USERPROFILE%\.CocosCreator\packages\` | `~/.CocosCreator/packages/` |
+
+### Windows
+
+Place the entire folder into the directory above, e.g. `<your-project>\packages\cocos-psd-prefab-2x\`.
+
+### macOS
+
+The global directory `~/.CocosCreator` (i.e. `$HOME/.CocosCreator`) is a **hidden
+folder** that Finder does not show by default. Open it with either of these:
+
+```bash
+# Option A: copy it over with one terminal command (the dir is auto-created if missing)
+mkdir -p ~/.CocosCreator/packages
+cp -R /path/to/cocos-psd-prefab-2x ~/.CocosCreator/packages/
+
+# Option B: open the hidden directory in Finder and drag the folder in
+open ~/.CocosCreator/packages
 ```
-<your-project>/packages/cocos-psd-prefab-2x/
-```
 
-After restarting / refreshing Cocos Creator, the **`PSD Tools / PSD to Prefab`** menu item appears.
-(You can also place it in the global `~/.CocosCreator/packages/` to share it across all projects.)
+> Finder tip: press `Cmd + Shift + G` in Finder, type `~/.CocosCreator/packages`
+> and hit Enter to jump there; or press `Cmd + Shift + .` in any Finder window to
+> toggle showing hidden files.
 
-> Tip: `node_modules/` is not committed to the repo. Just run `npm install` once after cloning; alternatively, you can ship a full zip with dependencies bundled in a Release, so it works out of the box on download without installing.
+To apply it to a single project only, place the folder at
+`<your-project>/packages/cocos-psd-prefab-2x/`.
+
+### Loading
+
+After restarting / refreshing Cocos Creator, the **`PSD Tools / PSD to Prefab`**
+menu item appears.
+
+> Tip: `node_modules/` is not committed to the repo. Just run `npm install` once
+> after cloning; alternatively, you can ship a full zip with dependencies bundled
+> in a Release, so it works out of the box on download without installing.
+> On macOS, if you unzip from a Release, Gatekeeper may quarantine it on first run;
+> run `xattr -dr com.apple.quarantine /path/to/cocos-psd-prefab-2x` to clear the
+> quarantine attribute.
 
 ## Usage (editor panel)
 
