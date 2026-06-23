@@ -115,8 +115,11 @@ Editor.Panel.extend({
                     (r.trimmed ? ' · 裁剪 ' + r.trimmed : '') +
                     (r.flattened ? ' · 压平 ' + r.flattened : '') +
                     (r.mergedDecor ? ' · 合并 ' + r.mergedDecor : '') +
+                    (r.strokeBaked ? ' · 描边 ' + r.strokeBaked : '') +
                     (r.revalidated ? ' · 重导 ' + r.revalidated : '') +
-                    ' · 忽略 ' + ignored + '\n' + (p.path || '');
+                    ' · 忽略 ' + ignored +
+                    ((r.strokeSkipped && r.strokeSkipped.length) ? '\n描边未烘焙(需栅格化) ' + r.strokeSkipped.length + ' 层: ' + r.strokeSkipped.map(function(s){return s.name + '(' + s.reason + ')';}).join(', ') : '') +
+                    '\n' + (p.path || '');
             }
         } catch (e) {
             if (this.$psdresult) {
